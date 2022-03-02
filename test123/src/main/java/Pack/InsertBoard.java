@@ -44,7 +44,7 @@ public class InsertBoard extends HttpServlet{
 
 			// 2. 전송된 값을 db에 저장.
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			String url = "jdbc:mysql://18.205.188.103:3306:3306/test?&useSSL=false";
+			String url = "jdbc:mysql://localhost:3306/test?&useSSL=false";
 			con = DriverManager.getConnection(url, "root", "1234");
 			String sql = "insert into boards values( ?,?,?,?, now() )";
 			pstmt = con.prepareStatement(sql);

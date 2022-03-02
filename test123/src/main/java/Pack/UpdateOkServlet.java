@@ -1,5 +1,6 @@
 package Pack;
 
+
 import java.io.IOException;
 
 import java.io.PrintWriter;
@@ -22,51 +23,96 @@ import javax.servlet.http.HttpServletRequest;
 
 import javax.servlet.http.HttpServletResponse;
 
-public class UpdateOkBoard extends HttpServlet{
+
+
+public class UpdateOkServlet extends HttpServlet{
+
 	@Override
+
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+
 			throws ServletException, IOException {
-		System.out.println("디버깅 확인");
+
+
+		req.setCharacterEncoding("UFT-8");
+
+
+		String id=req.getParameter("id");
+
+		String pwd=req.getParameter("pwd");
+
+		String email=req.getParameter("email");
+
+		String phone=req.getParameter("phone");
 
 		
-		req.setCharacterEncoding("UTF-8");
-		String title=req.getParameter("title");
-		String content=req.getParameter("content");
-		Integer num = Integer.parseInt(req.getParameter("num"));
 
 		PreparedStatement pstmt = null;
+
 		Connection con = null;
+
 		int n=0;
+
 		try{
-			
+
 			Class.forName("com.mysql.cj.jdbc.Driver");
 
-			String url = "jdbc:mysql://localhost:3306/test?&useSSL=false";
 
-			con = DriverManager.getConnection(url, "root", "1234");
+			String url = "jdbc:mysql://18.205.188.103:3306/test?&useSSL=false";
+		     con = DriverManager.getConnection(url, "lion", "1234");
+			
 
-			String sql = "update boards set title=?,content=? where num=?";
+			String sql = "update members set pwd=?,email=?,phone=? where id=?";
+
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, title);
-			pstmt.setString(2, content);
-			pstmt.setInt(3, num);
+
+			pstmt.setString(1, pwd);
+
+			pstmt.setString(2, email);
+
+			pstmt.setString(3, phone);
+
+			pstmt.setString(4, id);
+
+			
 
 			n = pstmt.executeUpdate();
 
+			
+
 			if(n>0){
-				resp.sendRedirect("listboard.do");
+
+				resp.sendRedirect("list.do");
+
 			}else{
+
 				PrintWriter pw = resp.getWriter();
+
 				pw.println("<html><head></head>");
-				pw.println("<body>실패</body>");
-				pw.println("</html>");
+
+
+				pw.println("<body></body>");
+
+
+				pw.println("</heal>");
+
 				pw.close();
+
 			}
 
+			
+
 		}catch(ClassNotFoundException ce){
+
 			System.out.println(ce.getMessage());
+
 		}catch(SQLException se){
+
 			System.out.println(se.getMessage());
+
 		}
+
 	}
+
 }
+
