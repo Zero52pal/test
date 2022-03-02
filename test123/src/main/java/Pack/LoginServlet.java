@@ -68,7 +68,7 @@ public class LoginServlet extends HttpServlet{
 
 			Class.forName("com.mysql.cj.jdbc.Driver");
 
-			String url = "jdbc:mysql://localhost:3306/test?&useSSL=false";
+			String url = "jdbc:mysql://18.205.188.103:3306/test?&useSSL=false";
 			
 			con = DriverManager.getConnection(url, "root", "1234");
 			
