@@ -34,15 +34,16 @@ public class UpdateServlet extends HttpServlet{
 
 			throws ServletException, IOException {
 
+
 		// 1. parameter로 전송된 id얻기.
+
 
 		String id=req.getParameter("id");
 
 		
-
 		// 2. id에 해당하는 정보를 db에서 조회해서 출력.
 
-		resp.setContentType("text/html;charset=euc-kr");
+		resp.setContentType("text/html;charset=UTF-8");
 
 		PrintWriter pw = resp.getWriter();
 
@@ -62,14 +63,13 @@ public class UpdateServlet extends HttpServlet{
 
 		try{
 
+
 			// 2. 전송된 값을 db에 저장.
 
 			Class.forName("com.mysql.cj.jdbc.Driver");
 
-			String url = "jdbc:mysql://localhost:3306/test?serverTimezone=UTC";
-
-			con = DriverManager.getConnection(url, "root", "1234");
-
+			String url = "jdbc:mysql://18.205.188.103:3306/test?&useSSL=false";
+		     con = DriverManager.getConnection(url, "lion", "1234");
 			
 
 			String sql = "select * from members where id=?";
@@ -79,8 +79,8 @@ public class UpdateServlet extends HttpServlet{
 			pstmt.setString(1, id);
 
 			
-
 			//sql구문 실행하기
+
 
 			rs = pstmt.executeQuery();
 
@@ -98,15 +98,19 @@ public class UpdateServlet extends HttpServlet{
 
 			pw.println("<input type='hidden' name='id' value='" + id + "'/>");
 
+
 			pw.println("아이디<input type='text' name='id' value='" + id + "' disabled='disabled'/><br/>");
 
 			pw.println("비밀번호<input type='text' name='pwd' value='" + pwd + "'/><br/>");
+
 
 			pw.println("email<input type='text' name='email' value='" + email + "'/><br/>");
 
 			pw.println("phone<input type='text' name='phone' value='" + phone + "'/><br/>");
 
+
 			pw.println("<input type='submit' value='저장'/><br/>");
+
 
 			pw.println("</form>");
 

@@ -33,7 +33,9 @@ public class UpdateOkServlet extends HttpServlet{
 
 			throws ServletException, IOException {
 
+
 		req.setCharacterEncoding("UFT-8");
+
 
 		String id=req.getParameter("id");
 
@@ -55,10 +57,9 @@ public class UpdateOkServlet extends HttpServlet{
 
 			Class.forName("com.mysql.cj.jdbc.Driver");
 
-			String url = "jdbc:mysql://localhost:3306/test?&useSSL=false";
 
-			con = DriverManager.getConnection(url, "root", "1234");
-
+			String url = "jdbc:mysql://18.205.188.103:3306/test?&useSSL=false";
+		     con = DriverManager.getConnection(url, "lion", "1234");
 			
 
 			String sql = "update members set pwd=?,email=?,phone=? where id=?";
@@ -89,7 +90,9 @@ public class UpdateOkServlet extends HttpServlet{
 
 				pw.println("<html><head></head>");
 
-				pw.println("<body>실패</body>");
+
+				pw.println("<body></body>");
+
 
 				pw.println("</heal>");
 
