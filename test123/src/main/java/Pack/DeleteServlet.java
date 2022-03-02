@@ -1,7 +1,4 @@
-
 package Pack;
-
-
 
 import java.io.IOException;
 
@@ -24,7 +21,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 
 import javax.servlet.http.HttpServletResponse;
-
 
 
 public class DeleteServlet extends HttpServlet{
@@ -112,9 +108,9 @@ public class DeleteServlet extends HttpServlet{
 
 			pw.println("<body>");
 
-			pw.println("È¸¿ø»èÁ¦¿¡ ½ÇÆĞÇß½À´Ï´Ù. ");
+			pw.println("íšŒì›ì‚­ì œì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤. ");
 
-			pw.println("<a href='javascript:history.go(-1)'>ÀÌÀüÆäÀÌÁö·Î °¡±â</a>");
+			pw.println("<a href='javascript:history.go(-1)'>ì´ì „í˜ì´ì§€ë¡œ ê°€ê¸°</a>");
 
 			pw.println("</body>");
 

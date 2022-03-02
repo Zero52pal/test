@@ -1,7 +1,5 @@
 package Pack;
 
-
-
 import java.io.IOException;
 
 
@@ -66,9 +64,6 @@ public class ListServlet extends HttpServlet{
 						String url = "jdbc:mysql://18.205.188.103:3306/test?&useSSL=false";
 					     con = DriverManager.getConnection(url, "lion", "1234");
 
-//			String url = "jdbc:mysql://localhost:3306/test?&useSSL=false";
-//			con = DriverManager.getConnection(url, "root", "1234");
-
 			String sql = "select * from members";
 
 			pstmt = con.prepareStatement(sql);
@@ -83,19 +78,19 @@ public class ListServlet extends HttpServlet{
 
 			pw.println("<tr>");
 
-			pw.println("<td>¾ÆÀÌµğ</td>");
+			pw.println("<td>ì•„ì´ë””</td>");
 
-			pw.println("<td>ºñ¹Ğ¹øÈ£</td>");
+			pw.println("<td>ë¹„ë°€ë²ˆí˜¸</td>");
 
-			pw.println("<td>ÀÌ¸ŞÀÏ</td>");
+			pw.println("<td>ì´ë©”ì¼</td>");
 
-			pw.println("<td>ÀüÈ­¹øÈ£</td>");
+			pw.println("<td>ì „í™”ë²ˆí˜¸</td>");
 
-			pw.println("<td>µî·ÏÀÏ</td>");
+			pw.println("<td>ë“±ë¡ì¼</td>");
 
-			pw.println("<td>»èÁ¦</td>");
+			pw.println("<td>ì‚­ì œ</td>");
 
-			pw.println("<td>¼öÁ¤</td>");
+			pw.println("<td>ìˆ˜ì •</td>");
 
 			pw.println("</tr>");
 
@@ -125,9 +120,9 @@ public class ListServlet extends HttpServlet{
 
 				pw.println("<td>" + regdate + "</td>");
 
-				pw.println("<td><a href='delete.do?id=" + id + "'>»èÁ¦</a></td>");
+				pw.println("<td><a href='delete.do?id=" + id + "'>ì‚­ì œ</a></td>");
 
-				pw.println("<td><a href='update.do?id=" + id + "'>¼öÁ¤</a></td>");
+				pw.println("<td><a href='update.do?id=" + id + "'>ìˆ˜ì •</a></td>");
 
 				pw.println("</tr>");
 
@@ -139,7 +134,7 @@ public class ListServlet extends HttpServlet{
 
 			pw.println("</div>");
 
-			pw.println("<a href='main.html'>¸ŞÀÎÆäÀÌÁö·Î ÀÌµ¿</a>");
+			pw.println("<a href='main.html'>ë©”ì¸í˜ì´ì§€ë¡œ ì´ë™</a>");
 
 		}catch(ClassNotFoundException ce){
 
@@ -174,6 +169,7 @@ public class ListServlet extends HttpServlet{
 		pw.println("</html>");
 
 	}
+
 
 }
 
