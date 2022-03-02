@@ -39,6 +39,7 @@ public class DeleteBoard extends HttpServlet{
 
 		try{
 
+			System.out.println("hello");
 			Class.forName("com.mysql.cj.jdbc.Driver");
 
 			String url = "jdbc:mysql://18.205.188.103:3306/test?&useSSL=false";
